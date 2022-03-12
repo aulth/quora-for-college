@@ -45,8 +45,17 @@ const Poststate = (props) => {
       const data = await response.json();
       setPosts(data);
     }
+    //search post
+    const getSearchPost = async(query)=>{
+      const url = `https://quoracollegebackend.herokuapp.com/search/${query}`;
+      const response = await fetch(url, {
+        method:'POST'
+      })
+      const data = await response.json();
+      setPosts(data.result);
+    }
   return (
-    <Postcontext.Provider value={{getAllPost, posts, createPost, fetchUserPost, getCategoryPost}}>
+    <Postcontext.Provider value={{getAllPost, posts, createPost, fetchUserPost, getCategoryPost, getSearchPost}}>
         {props.children}
     </Postcontext.Provider>
   )

@@ -438,7 +438,7 @@ body{
   height: 100%;
   background: #ffb166;
 }
-.bi-search {
+.mobile-search-icon {
   display: none;
 }
 .c-placement-btn{
@@ -570,8 +570,9 @@ th, td{
   }
   .c-search-bar{
     display: none;
+    display:flex;
   }
-  .bi-search{
+  .mobile-search-icon{
     display: block;
   }
 }

@@ -1,6 +1,7 @@
 import React, {useState, useContext} from 'react'
 import { useNavigate } from 'react-router-dom';
 import Modecontext from './context/Modecontext';
+import swal from 'sweetalert';
 import Footer from './Footer';
 const Login = () => {
     const navigate = useNavigate();
@@ -23,7 +24,7 @@ const Login = () => {
         data = JSON.stringify(data);
         data = JSON.parse(data);
         if(data.success==='true'){
-            alert("login success");
+            swal("Login!", "You have logged in succesful!", "success");
             localStorage.setItem('auth-token', data.authtoken);
             localStorage.setItem('username', data.user.name);
             localStorage.setItem('useravatar', data.user.avatar);
@@ -31,7 +32,8 @@ const Login = () => {
             setUser({email:'', password:''});
             navigate('/');
         }else{
-            alert("Login failed")
+            swal("Login!", "Login failed", "error");
+
         }
     }
   return (

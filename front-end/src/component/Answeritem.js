@@ -1,5 +1,6 @@
 import React,{useContext} from 'react'
 import { Link } from 'react-router-dom';
+import swal from 'sweetalert';
 import Modecontext from './context/Modecontext';
 const Answeritem = (props) => {
     const {darkText,  lightText, mode} = useContext(Modecontext);
@@ -14,10 +15,10 @@ const Answeritem = (props) => {
         })
         const data = await response.json();
         if (data.success === 'true') {
-            alert("Comment deleted successfully");
+            swal("Comment!", "Comment deleted succesfully!", "success");
             fetchComment(postid);
         } else {
-            alert("Comment deletion failed");
+            swal("Error!", 'comment deletion failed', "error");
         }
     }
     return (

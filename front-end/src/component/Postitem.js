@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import swal from 'sweetalert';
 import Answeritem from './Answeritem';
 import Modecontext from './context/Modecontext';
 import Postcontext from './context/Postcontext';
@@ -23,16 +24,18 @@ const Postitem = (props) => {
         })
         const data = await response.json();
         if (data.success === 'true') {
-            alert('Post deleted succesfully');
+            swal("Post!", "Post deleted succesfully!", "success");
             if (location.pathname.includes('user')) {
                 fetchUserPost(userid)
             } else {
                 getAllPost();
             }
         } else if (data.success === 'false') {
-            alert(data.error)
+            swal("Error!", data.error, "error");
+
         } else {
-            alert("Deletion failed");
+            swal("Error!", 'Deletion failed', "error");
+
         }
     }
     // Open Edit box 
@@ -66,7 +69,7 @@ const Postitem = (props) => {
         })
         const data = await response.json();
         if (data.success === 'true') {
-            alert("Edited Successfully");
+            swal('Post!', 'Post edited succesfully!', 'success');
             if (location.pathname.includes('user')) {
                 document.getElementsByClassName(`${postid}`)[0].style.display = 'none';
                 fetchUserPost(localStorage.getItem('userid'));
@@ -77,7 +80,7 @@ const Postitem = (props) => {
                 navigate('/')
             }
         } else {
-            alert(data.error);
+            swal('Error!', data.error, 'error');
         }
     }
     const showCommentBox = (postid) => {
@@ -101,12 +104,12 @@ const Postitem = (props) => {
         })
         const data = await response.json();
         if (data.success === 'true') {
-            alert("Comment posted succesfully")
+            swal("Comment!", "Comment posted succesfully!", "success");
             // document.getElementById(`comment-box-${postid}`).style.display = 'none';
             fetchComment(postid)
             setAnswer('')
         } else {
-            alert("Comment not posted");
+            swal("Error!",'comment not posted', "error");
         }
     }
     // fetching particular post's comment 

@@ -4,13 +4,13 @@ import Modecontext from './context/Modecontext';
 import Postcontext from './context/Postcontext';
 const Navbar = () => {
     const navigate = useNavigate();
-    const {getSearchPost} = useContext(Postcontext);
     const handleOnLogout=()=>{
         localStorage.removeItem('auth-token');
         localStorage.removeItem('username');
         localStorage.removeItem('useravatar');
         navigate('/');
     }
+    const {getSearchPost} = useContext(Postcontext);
     const {darkText, darkBg, lightText, lightBg, mode, modeSwitch} = useContext(Modecontext);
     const showSearchBar = ()=>{
         document.getElementById('c-search-bar').style.display = document.getElementById('c-search-bar').style.display === 'none' ? 'block' : 'none';
@@ -32,7 +32,7 @@ const Navbar = () => {
             </form>
             <div className="c-navigation c-h-45 c-d-flex">
                 <ul  className="c-d-flex c-navigation-list c-bs-bb c-ai-center">
-                    <i onClick={showSearchBar}  className="bi bi-search c-mx-2"></i>
+                    <i onClick={showSearchBar}  className="bi bi-search mobile-search-icon c-mx-2"></i>
                     {/* <i class="bi bi-moon-fill"></i> */}
                     <i className={`bi c-dark-light-icon ${mode==='light'?'bi-moon':'bi-brightness-high-fill'} c-mx-5`} onClick={modeSwitch} ></i>
                     {/* <i className={`bi ${mode==='light'?'bi-brightness-high':'bi-brightness-high-fill'} c-mx-5`} onClick={modeSwitch} ></i> */}

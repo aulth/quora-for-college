@@ -11,6 +11,7 @@ import Topic from './component/Topic';
 import About from './component/About';
 import Placement from './component/Placement';
 import Addplacement from './component/Addplacement';
+import Contact from './component/Contact'
 function App() {
   
   return (
@@ -28,6 +29,7 @@ function App() {
       <Route path="/post/topic/:topic" element={<Topic/>} />
       <Route path="/placement" element={<Placement/>} />
       <Route path="/add-placement" element={<Addplacement/>} />
+      <Route path='/contact' element={<Contact/>}/>
 
     </Routes>
     </Router>

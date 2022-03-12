@@ -1,7 +1,7 @@
 import React, {useState, useContext} from 'react'
 import Modecontext from './context/Modecontext';
 const Addplacement = () => {
-    const {mode, darkText, lightText, darkBg, lightBg} = useContext(Modecontext);
+    const {mode, darkText, lightText, darkBg} = useContext(Modecontext);
     const [placement, setPlacement] = useState({});
     const handleOnChange = (e)=>{
         e.preventDefault();
@@ -18,6 +18,8 @@ const Addplacement = () => {
             <input style={mode==='light'?{color:darkText}:darkInput} type="text" placeholder='Company' onChange={handleOnChange} name='company' required/>
             <input style={mode==='light'?{color:darkText}:darkInput} type="number" placeholder='No of Job' onChange={handleOnChange}  name="jobs" required/>
             <input style={mode==='light'?{color:darkText}:darkInput} type="number" placeholder='Salary' onChange={handleOnChange}  name="salary" required/>
+            <input style={mode==='light'?{color:darkText}:darkInput} type="text" placeholder='Department' onChange={handleOnChange} name='company' required/>
+
             <input type="submit" value="Add"/>
         </form>
     </div>

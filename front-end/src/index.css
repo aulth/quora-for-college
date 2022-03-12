@@ -458,9 +458,7 @@ table{
   box-size:border-box;
 }
 
-th:nth-child(1){
-  width:40px;
-}
+
 
 /* tr:nth-child(even) {
   background: lightgray;

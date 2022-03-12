@@ -10,7 +10,9 @@ const auth = require('./router/auth');
 const user = require('./router/user');
 const remove = require('./router/remove')
 const answer = require('./router/answer');
-const search = require('./router/search')
+const search = require('./router/search');
+const placement = require('./router/placement')
+
 app.use(express.json());
 app.use(cors())
 // imagekit config start
@@ -36,6 +38,8 @@ app.use('/user', user);
 app.use('/remove', remove);
 app.use('/answer', answer);
 app.use('/search', search);
+app.use('/placement', placement);
+
 app.get('/', (req, res) => {
     con.query('select *from post', (error, result) => {
         if (error) res.status(400).json(error)

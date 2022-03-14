@@ -520,7 +520,7 @@ th, td{
   border-radius:5px;
 
 }
-@media screen and (max-width: 568px){
+@media screen and (max-width: 768px){
   .c-left-sidebar{
       width: 100%;
       display: none;
@@ -568,7 +568,7 @@ th, td{
   }
   .c-search-bar{
     display: none;
-    display:flex;
+
   }
   .mobile-search-icon{
     display: block;
